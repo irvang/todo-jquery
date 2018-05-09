@@ -15,9 +15,9 @@ allUls.on('click', 'li', function () {
 // alert('you clicked on a span');
 allUls.on('click', 'li > span', function (evt) {
 
-	console.log($(this));
+	// console.log($(this));
 	$(this).parent().fadeOut(500, () => {
-		console.log($(this));
+		// console.log($(this));
 		$(this).parent().remove();
 	});
 	evt.stopPropagation();//halt bubbling
@@ -27,8 +27,7 @@ let todoInput = $('input[type=text]');
 todoInput.keypress(function (evt) {
 
 	if (event.which === 13) {
-		let inputVal = $(this).val();
-		$('ul').append(`<li><span>X </span>${inputVal}</li>`);
+		$('ul').append(`<li><span>X </span>${$(this).val()}</li>`);
 		console.log();
 		$(this).val('');
 	}
