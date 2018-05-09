@@ -1,23 +1,13 @@
 //Check off specific tasks by clicking on them
-// const allLis = $('li');
-// allLis.click(function (evt) {
-// 	$(this).toggleClass('completed');
-// });
-let allUls = $('ul');
-allUls.on('click', 'li', function () {
+let ul = $('ul');
+
+ul.on('click', 'li', function () {
 	$(this).toggleClass('completed');
 })
 
 //Click on on the X to delete a task
-
-// let allSpans = $('li > span');
-// allSpans.click(function (evt) {
-// alert('you clicked on a span');
-allUls.on('click', 'li > span', function (evt) {
-
-	// console.log($(this));
+ul.on('click', 'li > span', function (evt) {
 	$(this).parent().fadeOut(500, () => {
-		// console.log($(this));
 		$(this).parent().remove();
 	});
 	evt.stopPropagation();//halt bubbling
@@ -31,19 +21,4 @@ todoInput.keypress(function (evt) {
 		console.log();
 		$(this).val('');
 	}
-})
-
-
-// $('ul').click(() => {
-// 	// alert('you clicked on the ul');
-// });
-
-// $('#container').click(() => {
-// 	// alert('you clicked on the .container');
-// });
-
-// $('body').click(() => {
-// 	// alert('you clicked on the body');
-// });
-
-// //#28 done
+});
